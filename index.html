@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sindhuja Ummadisetti | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .navbar {
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #f1c40f !important;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .section {
+            padding: 100px 0;
+        }
+        .section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section p {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        #home {
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: #fff;
+            text-align: center;
+            padding: 150px 0 100px;
+        }
+        #home h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        #home p {
+            font-size: 1.2rem;
+            color: #f1c40f;
+        }
+        #about, #skills, #education, #contact {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin: 20px 0;
+        }
+        #about .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 1rem auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        #skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .skill-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        #education .education-item {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        #projects .project-card {
+            background: #fff;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        #projects .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-card h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .project-card p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .project-card .details {
+            font-size: 0.9rem;
+            color: #888;
+            margin: 0.5rem 0;
+        }
+        .project-card .btn {
+            padding: 8px 15px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s ease;
+        }
+        .project-card .btn:hover {
+            background: #2980b9;
+        }
+        .iframe-display {
+            margin-top: 15px;
+            display: none;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        #contact form {
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        #contact .form-control {
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+        #contact .btn {
+            background: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #contact .btn:hover {
+            background: #2980b9;
+        }
+        footer {
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            #home {
+                padding: 100px 0 50px;
+            }
+            #home h1 {
+                font-size: 2rem;
+            }
+            .section h1 {
+                font-size: 2rem;
+            }
+            .section p {
+                font-size: 1rem;
+            }
+            .project-card h2 {
+                font-size: 1.5rem;
+            }
+            iframe {
+                height: 200px;
+            }
+            #about .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Sindhuja Ummadisetti</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="section">
+        <div class="container">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Sindhuja, a passionate web developer crafting creative and functional solutions. Explore my work and journey below!</p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h1>About Me</h1>
+            <img src="https://i.ibb.co/cKdkMbYn/react.jpg" alt="Sindhuja Ummadisetti Profile" class="profile-img">
+            <p>I'm a dedicated web developer with a passion for building user-friendly and innovative web applications. With a strong foundation in HTML, CSS, JavaScript, and modern frameworks, I enjoy solving complex problems and creating seamless digital experiences. My goal is to contribute to impactful projects while continuously learning and growing in the tech industry.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h1>Skills</h1>
+            <p>Here are some of the technologies and tools I specialize in:</p>
+            <div class="skills-grid">
+                <div class="skill-card">HTML5</div>
+                <div class="skill-card">CSS3</div>
+                <div class="skill-card">JavaScript</div>
+                <div class="skill-card">Bootstrap</div>
+                <div class="skill-card">React</div>
+                <div class="skill-card">Git & GitHub</div>
+                <div class="skill-card">Responsive Design</div>
+                <div class="skill-card">Problem Solving</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h1>Education</h1>
+            <p>My academic background has equipped me with the knowledge to excel in web development.</p>
+            <div class="education-item">
+                <h3>Master of Science in Computer Science</h3>
+                <p>Auburn University at Montgomery | 2023 - 2025</p>
+            </div>
+            <div class="education-item">
+                <h3>Bachelor of Technology in Electronics and communication engineering</h3>
+                <p>Jawaharlal Nehru Technological University | 2018 - 2022</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h1>My Projects</h1>
+            <p>Explore a collection of my creative and functional web development projects.</p>
+            <div id="project-display"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h1>Contact Me</h1>
+            <p>Feel free to reach out for collaborations or inquiries!</p>
+            <form>
+                <input type="text" class="form-control" placeholder="Your Name" required>
+                <input type="email" class="form-control" placeholder="Your Email" required>
+                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Sindhuja Ummadisetti | <a href="https://github.com/Sindhuummadisetti" target="_blank">GitHub</a> | <a href="mailto:summadis@aum.edu">Contact Me</a></p>
+    </footer>
+
+    <script id="project-data" type="application/json">
+        [
+            {
+                "title": "Introduction To HTML",
+                "description": "The Index page has a button labeled Go to Dashboard. When clicked, it redirects to the Dashboard page, which also has a button to go back to the Index page.",
+                "date": "01-16-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project1/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project1/index.html"
+            },
+            {
+                "title": "CSS Hover Effect",
+                "description": "This HTML and CSS code creates an interactive webpage displaying a series of colored letter blocks (S, I, N, D, H, U, J, A) arranged in a row. The blocks change size and color when hovered.",
+                "date": "01-28-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project2/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project2/index.html"
+            },
+            {
+                "title": "Welcome To JS",
+                "description": "This code creates a webpage with an input field and a button. When the user types their name and clicks the button, a JavaScript function shows an alert with a personalized greeting saying Welcome [user's name] The greeting changes based on what the user enters.",
+                "date": "01-30-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project3/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project3/index.html"
+            },
+            {
+                "title": "Calculator with JS",
+                "description": "This code creates a simple calculator with an input field for two numbers (X and Y) and a result field There are four buttons for different operations: addition, subtraction, multiplication, and division. When the user enters values for X and Y and clicks one of the buttons, the corresponding mathematical operation is performed, and the result is displayed in the Result field. The operations are handled by JavaScript functions, which take the values from the input fields, perform the calculation, and show the result.",
+                "date": "01-30-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project4/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project4/index.html"
+            },
+            {
+                "title": "String Operation",
+                "description": "This code creates a simple text converter that takes user input, converts it to uppercase, and displays the result in a disabled output field When the user types in the input field, the convertText function is triggered, which checks if there is any text entered If text is present, it converts the input to uppercase and shows it in the output field otherwise, the output field is cleared.",
+                "date": "02-04-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project5/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project5/index.html"
+            },
+            {
+                "title": "Conditions: Grade Calculator",
+                "description": "This code creates a simple grade calculator that allows users to input their score, and it dynamically displays the corresponding grade. The user enters their score in an input field, and the grade is calculated and displayed in a paragraph below The styling ensures the page is centered, with input fields and text appearing clearly, and the result updates as the user types The JavaScript function calculateGrade() (referenced in the external script.js file) handles the logic for calculating the grade based on the input score.",
+                "date": "02-06-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project6/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project6/index.html"
+            },
+            {
+                "title": "Call-Stack with Array",
+                "description": "This code creates a simple Task Manager web page where users can enter and manage tasks It features an input field to type the task name, an Add Task button to add tasks, and an Undo Task button to remove the most recently added task The tasks are displayed in a paragraph below the buttons, and initially, it shows No tasks yet The functionality for adding and undoing tasks is handled by JavaScript in an external script file.",
+                "date": "02-06-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project7/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project7/index.html"
+            },
+            {
+                "title": "Star with Loops",
+                "description": "This code creates a simple web page that generates a star pattern based on the number entered by the user It contains an input field where the user can enter a number, and as the user types, a star pattern is dynamically displayed below The pattern consists of a series of lines, with each line containing an increasing number of stars The pattern updates immediately as the user changes the number in the input field The logic for generating the pattern is handled by a JavaScript event listener that reacts to input changes.",
+                "date": "02-11-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project8/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project8/index.html"
+            },
+            {
+                "title": "Triangle with Stars",
+                "description": "This code creates a web page where the user can input a number, and based on the input, it dynamically displays a triangle of asterisks (*) The number entered determines how many rows of asterisks are shown, with each row containing an increasing number of stars Additionally, the text color of the displayed triangle changes each time the user types a new number, cycling through red, blue, green, and yellow The color change is handled by a JavaScript function that updates the text and cycles through the colors using an index.",
+                "date": "02-13-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project9/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project9/index.html"
+            },
+            {
+                "title": "Star Pattern with Color",
+                "description": "This code creates a simple web page where the user can input a number, and it dynamically generates a pattern of asterisks (*) in the form of a triangle The number entered determines how many rows of stars are shown, with each row containing an increasing number of stars Additionally, the text color of the pattern changes each time the user types a new number, cycling through red, blue, green, and yellow The color changes are managed by a JavaScript function that updates the displayed text and cycles through the colors using an index.",
+                "date": "02-13-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project10/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project10/index.html"
+            },
+            {
+                "title": "Sum Calculator",
+                "description": "This code creates a simple webpage that calculates the sum of all integers between two numbers (A and B) provided by the user There are two input fields for the user to enter values for A and B When the Calculate Sum button is clicked, the JavaScript function calculate() is triggered It uses a do-while loop to calculate the sum of all integers from A to B, then displays the result in a div element The sum is updated dynamically each time the user clicks the button.",
+                "date": "02-13-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project11/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project11/index.html"
+            },
+            {
+                "title": "Class Work - Objects",
+                "description": "This code creates a webpage where you can input and display student information The user can enter a student's name, ID, and department into text fields and then click the Insert Info button to store the data When the Show Info button is clicked, the latest entered student details are displayed Additionally, the All Students Data button shows all the student records stored in the array Each student's details, including name, student ID, and department, are dynamically displayed in the container or objectDataContainer based on the actions taken The student data is stored in an array to handle multiple student entries.",
+                "date": "02-18-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project12/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project12/index.html"
+            },
+            {
+                "title": "Class Work - Objects 2",
+                "description": "This code creates a simple student information management system where the user can input a student's name, course, year of admission, and roll number and click the Insert Info button to store the information. The details are stored in an array, and the user can view all stored student information by clicking the Show All button. The user can also search for students by their name or course using the search input and the Search button. If a match is found, the student information is displayed. The system allows the user to clear the inputs and the displayed data with the Clear Inputs and Clear Display buttons. The data is dynamically updated and displayed on the webpage.",
+                "date": "02-20-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project13/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project13/index.html"
+            },
+            {
+                "title": "Temporary Content",
+                "description": "This code creates a simple random number generator where the user can input a minimum and maximum value in the provided text fields When the Generate Random Number button is clicked the Generate() function is triggered This function checks whether the input values are valid numbers and whether the minimum value is less than or equal to the maximum value If the input is valid a random number between the specified range is generated and displayed on the screen If the input is invalid an error message is shown Additionally the script includes a clear_everything() function that clears the content of the page although it is not used in this code directly There's also a setTimeout function which is intended to call generate() after 3 seconds but it should be corrected to avoid errors.",
+                "date": "02-25-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project14/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project14/index.html"
+            },
+            {
+                "title": "Random Number Array",
+                "description": "This code creates a webpage where a user can input two integers, a and b, and generate a random number between them by clicking the 'Generate Random Number' button The generateRandomNumber() function is triggered when the button is clicked It retrieves the values from the input fields for a and b and generates a random number between them Then it selects a random color from an array of colors and displays the generated random number in that color on the webpage The result is shown in a paragraph element with the ID result.",
+                "date": "02-25-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project15/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project15/index.html"
+            },
+            {
+                "title": "Vanished Text",
+                "description": "This code creates a webpage where a user can input a minimum and maximum range to generate a random number between the two values The function Generate() is triggered when the user clicks the Generate Random Number button It checks if the input values are valid ensuring that both are numbers and the minimum value is not greater than the maximum If valid it generates a random number between the specified range and displays it on the page If the inputs are invalid it displays an error message Additionally the clear_everything() function is called after 5 seconds clearing the content and replacing it with the message Vanished.",
+                "date": "02-25-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project16/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project16/index.html"
+            },
+            {
+                "title": "Class Work - Class & Bootstrap - Calculator",
+                "description": "This code creates an age calculator webpage where the user can input their birthdate in the format dd/mm/yyyy and click a button to calculate their age The JavaScript function calculateAge() retrieves the date from the input field and compares it with the current date to calculate the age If the input is valid the user's age is displayed If the input is empty or invalid an error message is shown.",
+                "date": "03-11-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project17/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project17/index.html"
+            },
+            {
+                "title": "Class Work - Class & Bootstrap",
+                "description": "This code creates a webpage with a navigation bar using Bootstrap and a form that includes fields for username, email, and full name along with two buttons The form is styled using Bootstrap's grid system and the navigation bar is collapsible for responsive design The page includes a search bar in the navigation and buttons to either cancel or continue to checkout The Bootstrap framework is used for layout and styling making it mobile-friendly and visually appealing.",
+                "date": "03-11-2025",
+                "github": "https://github.com/Sindhuummadisetti/ummadisetti/blob/main/project/project18/index.html",
+                "iframe": "https://sindhuummadisetti.github.io/ummadisetti/project/project18/index.html"
+            }
+        ]
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const projects = JSON.parse(document.getElementById("project-data").textContent);
+            const projectDisplay = document.getElementById("project-display");
+
+            function displayProjects() {
+                projectDisplay.innerHTML = projects.map((project, index) => `
+                    <div class="project-card">
+                        <h2>${project.title}</h2>
+                        <p>${project.description}</p>
+                        <p class="details"><strong>Date:</strong> ${project.date}</p>
+                        <button class="btn" onclick="window.open('${project.github}', '_blank')">View Code</button>
+                        <button class="btn" onclick="showIframe(${index})">Live Demo</button>
+                        <div class="iframe-display" id="iframe-display-${index}">
+                            <iframe src="${project.iframe}" title="${project.title}"></iframe>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            window.showIframe = function(index) {
+                const iframeDisplay = document.getElementById(`iframe-display-${index}`);
+                iframeDisplay.style.display = iframeDisplay.style.display === 'block' ? 'none' : 'block';
+            };
+
+            displayProjects();
+        });
+    </script>
+</body>
+</html>
