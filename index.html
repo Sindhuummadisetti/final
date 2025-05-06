@@ -78,12 +78,31 @@
             margin: 20px 0;
         }
         #about .profile-img {
-            width: 150px;
-            height: 150px;
+            max-width: 150px; /* Maximum width for larger screens */
+            min-width: 80px; /* Minimum width to prevent it from becoming too small */
+            width: 15vw; /* Scales with viewport width for responsiveness */
+            height: auto; /* Maintains aspect ratio */
             border-radius: 50%;
             display: block;
             margin: 1rem auto;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+/* Media query for smaller screens */
+        @media (max-width: 768px) {
+            #about .profile-img {
+                max-width: 120px; /* Slightly smaller max width for tablets/mobile */
+                width: 20vw; /* Slightly larger relative width for smaller screens */
+            }
+        }
+
+/* Media query for very small screens */
+        @media (max-width: 576px) {
+            #about .profile-img {
+                max-width: 100px; /* Even smaller max width for small mobiles */
+                width: 25vw; /* Adjust for very small screens */
+            }
+        }
         }
         #skills .skills-grid {
             display: grid;
